@@ -1,18 +1,27 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 
-import './Home.css'
+import './Home.css';
 
-import TestModal from '../Modals/TestModal/TestModal'
+import TestModal from '../Modals/TestModal/TestModal';
+import * as modalPlugin from '../../utils/modalPlugin/modalPlugin'
 
 
 const Home = () => {
 
-    const [isOpen,setIsOpen] = useState(true);
+    useEffect(() => {
+        modalPlugin.renderGlobalModal(TestModal);
+    },[])
+
+
 
     return (
         <section className="frow center a-cen j-cen mt-50">
-            <button className="btn-round-shadow-l" onClick={() => setIsOpen(true)}>Open Modal</button>
-            <TestModal open={isOpen} onCloseHandler={() => setIsOpen(false)} />
+            <button
+                className="btn-round-shadow-l"
+                onClick={() => modalPlugin.renderGlobalModal(TestModal)}
+            >
+                Open Modal
+            </button>
         </section>
     );
 

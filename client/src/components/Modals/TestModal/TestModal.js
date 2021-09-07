@@ -1,28 +1,16 @@
-import ReactDOM from 'react-dom';
 
 
 import './TestModal.css'
 
-const TestModal = ({
-    open,
-    children,
-    onCloseHandler
-}) => {
+const TestModal = () => {
 
-    if(!open) {
-        return null;
-    }
-
-    return ReactDOM.createPortal(
+    return (
         <div>
-            <div className="test-modal-gray-overlay"></div>
-            <div className="test-modal">
-                <button className="btn-round-shadow-l" onClick={onCloseHandler}>Close Modal</button>
-            </div>
-            {children}
+            <div>Hello</div>
+            <div>Hello</div>
+            <div>Hello</div>
+            <div>Hello</div>
         </div>
-        ,document.getElementById('modal-portal')
-
     )
 
 
