@@ -7,7 +7,7 @@ import TestModal from '../Modals/TestModal/TestModal'
 
 const Home = () => {
 
-    const [isOpen,setIsOpen] = useState(false);
+    const [isOpen,setIsOpen] = useState(true);
 
     return (
         <section className="frow center a-cen j-cen mt-50">
