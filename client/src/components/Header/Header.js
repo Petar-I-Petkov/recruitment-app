@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { withRouter } from "react-router";
 import './Header.css';
 
+import TestModal from '../Modals/TestModal/TestModal'
+
 // import * as userService from '../../services/userService'
 // import AuthContext from '../../contexts/AuthContext'
 // import { renderInfo } from '../../utils/notificationPlugin/notificationPlugin'
@@ -16,9 +18,13 @@ class Header extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            isOpen: false
         }
     }
 
+    setIsOpen(isOpen) {
+        this.setState(() => ({ isOpen,}))
+    }
 
 
     render() {
@@ -47,28 +53,10 @@ class Header extends Component {
                     </nav>
                 </header>
 
-                {/* <main>
-                    <form className="fcol a-cen j-cen border-sdw p-20 vw-50 center mt-50">
-                        <h1>Add new job</h1>
-                        <section className="fcol a-start j-cen mt-30">
-                            <label htmlFor="name">Name:</label>
-                            <input type="text" className="" placeholder="Name" id="name" />
-                        </section>
-                        <section className="fcol a-start j-cen mt-30">
-                            <label htmlFor="name">Name:</label>
-                            <input type="text" className="" placeholder="Name" id="name" />
-                        </section>
-                        <section className="fcol a-start j-cen mt-30">
-                            <label htmlFor="name">Name:</label>
-                            <input type="text" className="" placeholder="Name" id="name" />
-                        </section>
-                        <button className="btn-round-shadow-l mt-50">
-                            Submit
-                        </button>
-                    </form>
-                </main> */}
-
-
+                <section className="frow center a-cen j-cen mt-50">
+                    <button className="btn-round-shadow-l" onClick={() => this.setIsOpen(true)}>Open Modal</button>
+                    <TestModal open={this.state.isOpen} onCloseHandler={() => this.setIsOpen(false)} />
+                </section>
 
             </>
 
