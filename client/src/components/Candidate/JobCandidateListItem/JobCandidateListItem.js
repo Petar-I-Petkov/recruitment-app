@@ -1,8 +1,9 @@
-import ReactDom from 'react-dom';
 
-import AssignInterviewModal from '../../Modals/AssignInterviewModal/AssignInterviewModal'
 
 import './JobCandidateListItem.css';
+import AssignInterviewModal from '../../Modals/AssignInterviewModal/AssignInterviewModal'
+
+import * as modalPlugin from '../../../utils/modalPlugin/modalPlugin'
 
 
 const JobCandidateListItem = ({
@@ -12,19 +13,10 @@ const JobCandidateListItem = ({
     onJobCandidateDeleteHandler,
 }) => {
 
-    const onDialogCancelClickHandler = (e) => {
-        e.preventDefault();
-        ReactDom.unmountComponentAtNode(document.getElementById('modal-portal'));
-    }
-
     const onAddInterviewClickHandler = (e) => {
         e.preventDefault();
-        ReactDom.render(
-            <AssignInterviewModal firstName={firstName} lastName={lastName} onDialogCancelClickHandler={onDialogCancelClickHandler} />,
-            document.getElementById('modal-portal')
-        )
+        modalPlugin.renderGlobalModal(AssignInterviewModal);
     }
-
 
 
     return (

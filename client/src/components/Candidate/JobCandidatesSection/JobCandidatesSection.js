@@ -120,7 +120,8 @@ const JobCandidatesSection = ({
                                     {`${candidate.firstName} ${candidate.lastName}`}
                                 </option>)}
                         </>
-                        : null}
+                        : notificationPlugin.renderLoadingBoxLocal()
+                    }
                 </select>
                 <button className="btn-round-shadow-l" onClick={onCandidateAddClickHandler} disabled={!toAdd}>
                     Add
