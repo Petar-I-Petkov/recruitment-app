@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { withRouter } from "react-router";
 import './Header.css';
 
-import TestModal from '../Modals/TestModal/TestModal'
 
 // import * as userService from '../../services/userService'
 // import AuthContext from '../../contexts/AuthContext'
@@ -18,14 +17,8 @@ class Header extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            isOpen: false
         }
     }
-
-    setIsOpen(isOpen) {
-        this.setState(() => ({ isOpen,}))
-    }
-
 
     render() {
 
@@ -53,10 +46,7 @@ class Header extends Component {
                     </nav>
                 </header>
 
-                <section className="frow center a-cen j-cen mt-50">
-                    <button className="btn-round-shadow-l" onClick={() => this.setIsOpen(true)}>Open Modal</button>
-                    <TestModal open={this.state.isOpen} onCloseHandler={() => this.setIsOpen(false)} />
-                </section>
+
 
             </>
 
