@@ -1,0 +1,249 @@
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+
+
+/* resets & setup */
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    width: 100%;
+    height: 100%;   
+}
+
+body{
+    height: 100%;
+    padding:0;
+    margin:0;   
+    
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    display:flex;
+    flex-direction:column;}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;}
+
+a:hover{cursor: pointer;}
+
+ul{
+    list-style: none;
+}
+      
+li{
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+
+/* text size classes */
+.rem-20{font-size: 2.0rem;}
+
+.rem-19{font-size: 1.9rem;}
+
+.rem-18{font-size:1.8rem;}
+
+.rem-17{font-size:1.7rem;}
+
+.rem-16{font-size:1.6rem;}
+
+.rem-15{font-size:1.5rem;}
+
+.rem-14{font-size:1.4rem;}
+
+.rem-13{font-size:1.3rem;}
+
+.rem-12{font-size:1.2rem;}
+
+.rem-11{font-size:1.1rem;}
+
+.rem-10{font-size:1.0rem;}
+
+.rem-09{font-size:0.9rem;}
+
+.rem-08{font-size:0.8rem;}
+
+.rem-07{font-size:0.7rem;}
+
+/* position in screen/element */
+.center{ margin: 0px auto;}
+
+/* margin-top classes */
+.mt-0{margin-top: 0px;}
+
+.mt-5{margin-top: 5px;}
+
+.mt-10{margin-top: 10px;}
+
+.mt-15{ margin-top: 15px;}
+
+.mt-20{ margin-top: 20px;}
+
+.mt-25{ margin-top: 25px;}
+
+.mt-30{ margin-top: 30px;}
+
+.mt-35{ margin-top: 35px;}
+
+.mt-40{ margin-top: 40px;}
+
+.mt-45{ margin-top: 45px;}
+
+.mt-50{ margin-top: 50px;}
+
+
+/* margin-right classes */
+.mr-0{margin-right: 0px;}
+
+.mr-5{margin-right: 5px;}
+
+.mr-10{margin-right: 10px;}
+
+.mr-15{ margin-right: 15px;}
+
+.mr-20{ margin-right: 20px;}
+
+/* margin-bottom classes */
+.mb-0{margin-bottom: 0px;}
+
+.mb-5{margin-bottom: 5px;}
+
+.mb-10{margin-bottom: 10px;}
+
+.mb-15{ margin-bottom: 15px;}
+
+.mb-20{ margin-bottom: 20px;}
+
+/* margin-left classes */
+.ml-0{margin-left: 0px;}
+
+.ml-5{margin-left: 5px;}
+
+.ml-10{margin-left: 10px;}
+
+.ml-15{ margin-left: 15px;}
+
+.ml-20{ margin-left: 20px;}
+
+/* padding classes */
+
+.p-0{padding: 0px;}
+
+.p-5{padding: 5px;}
+
+.p-10{padding: 10px;}
+
+.p-15{padding : 15px;}
+
+.p-20{padding: 20px;}
+
+
+/* padding-top classes */
+.pt-0{padding-top: 0px;}
+
+.pt-5{padding-top: 5px;}
+
+.pt-7{padding-top: 7px;}
+
+.pt-8{padding-top: 8px;}
+
+.pt-10{padding-top: 10px;}
+
+.pt-15{ padding-top: 15px;}
+
+.pt-20{ padding-top: 20px;}
+
+/* padding-right classes */
+.pr-0{padding-right: 0px;}
+
+.pr-5{padding-right: 5px;}
+
+.pr-10{padding-right: 10px;}
+
+.pr-15{ padding-right: 15px;}
+
+.pr-20{ padding-right: 20px;}
+
+/* padding-bottom classes */
+.pb-0{padding-bottom: 0px;}
+
+.pb-5{padding-bottom: 5px;}
+
+.pb-10{padding-bottom: 10px;}
+
+.pb-15{ padding-bottom: 15px;}
+
+.pb-20{ padding-bottom: 20px;}
+
+/* padding-left classes */
+.pl-0{padding-left: 0px;}
+
+.pl-5{padding-left: 5px;}
+
+.pl-10{padding-left: 10px;}
+
+.pl-15{ padding-left: 15px;}
+
+.pl-20{ padding-left: 20px;}
+
+
+/* button classes */
+.btn-round-shadow-l{
+    text-transform:uppercase;
+    padding: 10px 20px;
+    border-radius:30px;
+    border:none;
+    box-shadow: 3px 2px 5px 0px grey;
+    cursor:pointer;
+    transition: transform .1s; /* Animation */
+}
+
+.btn-round-shadow-l:hover{
+    transform: scale(1.1);
+}
+
+.btn-round-shadow-sm{
+    text-transform:uppercase;
+    padding: 3px 10px;
+    border-radius:10px;
+    border:none;
+    box-shadow: 3px 2px 5px 0px grey;
+    cursor:pointer;
+    transition: transform .1s; /* Animation */
+}
+
+.btn-round-shadow-sm:hover{
+    transform: scale(1.1);
+}
+
+.btn-round-l{
+    text-transform:uppercase;
+    padding: 10px 20px;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+    transition: transform .1s; /* Animation */
+}
+
+.btn-round-l:hover{
+    transform: scale(1.1);
+}
+
+.btn-round-sm{
+    text-transform:uppercase;
+    padding: 3px 10px;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+    transition: transform .1s; /* Animation */
+}
+
+.btn-round-sm:hover{
+    transform: scale(1.1);
+}
+

@@ -1,0 +1,12 @@
+.job-details-candidates{
+    flex-grow: 1;
+    border-top:  1px solid #3498db;
+    border-bottom:  1px solid #3498db;
+}
+.candidates-pending button{
+ padding: 5px 30px 5px 30px;
+}
+
+.added-candidates-list{
+    list-style-type:decimal-leading-zero;
+}

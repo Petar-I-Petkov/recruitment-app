@@ -1,0 +1,10 @@
+.job-thumbnail{
+    width: 70%;
+    border-bottom:  1px solid #3498db;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.job-title{
+    font-weight: bold;
+}

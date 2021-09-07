@@ -1,0 +1,35 @@
+.job-details{
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.job-details > h2{
+    margin: 10px;
+}
+
+.job-details-top{
+    background-color: #42abf8;
+    width: 100%;
+    padding: 10px;
+}
+
+.job-details-middle-container{
+    width: 100%;
+    padding: 20px;
+    justify-content:stretch;
+    flex-grow: 1;
+}
+
+.job-details-description-container{
+    flex-grow: 1;
+}
+
+.job-details-description{ 
+    min-height: 100px;
+}
+
+.job-details-description-text{
+    font-weight: bold;
+    margin-top: 10px;
+}
