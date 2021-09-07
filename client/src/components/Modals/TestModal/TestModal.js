@@ -1,3 +1,5 @@
+import ReactDOM from 'react-dom';
+
 
 import './TestModal.css'
 
@@ -11,7 +13,7 @@ const TestModal = ({
         return null;
     }
 
-    return (
+    return ReactDOM.createPortal(
         <div>
             <div className="test-modal-gray-overlay"></div>
             <div className="test-modal">
@@ -19,6 +21,8 @@ const TestModal = ({
             </div>
             {children}
         </div>
+        ,document.getElementById('modal-portal')
+
     )
 
 
