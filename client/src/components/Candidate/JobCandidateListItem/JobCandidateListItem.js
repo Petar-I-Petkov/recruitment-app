@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import { useHistory } from 'react-router-dom'
 import './JobCandidateListItem.css';
 
 import BookInterview from '../../Interview/BookInterview/BookInterview'
@@ -18,13 +17,12 @@ const JobCandidateListItem = ({
     slotsAreAvailable,
     availableSlots
 }) => {
-    const history = useHistory();
 
     const slotsContext = useContext(SlotsContext);
 
     const onAddInterviewClickHandler = (e) => {
         e.preventDefault();
-        modalPlugin.renderGlobalModal(BookInterview,{ candidateId,jobId,history,availableSlots,slotsContext });
+        modalPlugin.renderGlobalModal(BookInterview,{ candidateId,jobId,slotsContext });
     }
 
 

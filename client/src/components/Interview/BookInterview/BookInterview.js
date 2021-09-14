@@ -9,10 +9,8 @@ import * as notificationPlugin from '../../../utils/notificationPlugin/notificat
 const BookInterview = ({
     candidateId,
     jobId,
-    history,
     slotsContext
 }) => {
-
     const [slot,setSlot] = useState(null);
 
     const onSlotSelectHandler = (e) => {
@@ -37,8 +35,8 @@ const BookInterview = ({
         }).then(response => {
             setSlot(null);
             notificationPlugin.renderInfo({ message: "Interview Added!" })
+            slotsContext.updateAvailableSlots();
             modalPlugin.closeGlobalModal();
-            history.go(0)
         },(error) => console.log(error));
 
     }

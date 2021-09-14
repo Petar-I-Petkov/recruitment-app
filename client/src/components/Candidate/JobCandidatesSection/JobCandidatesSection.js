@@ -15,7 +15,6 @@ const JobCandidatesSection = ({
     const [addedCandidates,setAddedCandidates] = useState([]);
     const [toAdd,setToAdd] = useState(null);
     const [removedFromJob,setRemovedFromJob] = useState(null);
-
     const [availableSlots,setAvailableSlots] = useState([]);
 
 
@@ -45,13 +44,13 @@ const JobCandidatesSection = ({
             },(error) => console.log(error))
     },[toAdd,removedFromJob])
 
-    useEffect(() => {
+    const updateAvailableSlots = () =>
         interviewservice.getAvailableSlots()
-            .then(availableSlots => {
-                if(availableSlots && availableSlots.length > 0) {
-                    setAvailableSlots(availableSlots);
-                }
-            },err => console.log(err));
+            .then(availableSlots => availableSlots ? setAvailableSlots(availableSlots) : null,
+                err => console.log(err));
+
+    useEffect(() => {
+        updateAvailableSlots();
     },[])
 
 
@@ -97,7 +96,7 @@ const JobCandidatesSection = ({
 
 
     return (
-        <SlotsContext.Provider value={{ availableSlots,}}>
+        <SlotsContext.Provider value={{ availableSlots,updateAvailableSlots }}>
             <section className="job-details-candidates frow a-start j-between">
                 <section className="candidates-current pl-20">
                     <h2 className="mt-10 mb-20">
