@@ -8,7 +8,7 @@ import useFetch from '../../../hooks/useFetch';
 const getAllJobsUrl = 'http://localhost:5000/jobs';
 
 
-const JobAdd = () => {
+const JobAll = () => {
 
     const res = useFetch(getAllJobsUrl,{});
     const jobs = res.response;
@@ -44,4 +44,4 @@ const JobAdd = () => {
 
 }
 
-export default JobAdd;
+export default JobAll;

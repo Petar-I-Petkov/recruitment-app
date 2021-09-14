@@ -8,10 +8,10 @@ const ModalGlobalContainer = ({
 }) => {
     return ReactDOM.createPortal(
         <>
-            <div className="test-modal-gray-overlay"></div>
-            <div className="test-modal">
+            <div className="global-modal-gray-overlay"></div>
+            <div className="global-modal fcol j-between a-cen">
                 {children}
-                <button className="btn-round-shadow-l" onClick={onDialogCloseHandler}>Close Modal</button>
+                <button className="btn-round-shadow-l" onClick={onDialogCloseHandler}>Close</button>
             </div>
         </>
         ,document.getElementById('modal-portal')

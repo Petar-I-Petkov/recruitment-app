@@ -13,11 +13,9 @@ function App() {
 
       <Header />
       <Switch>
-
         <Route path="/home" component={Home} />
         <Route path="/jobs/all" component={JobAll} />
         <Route path="/jobs/details/:jobId" component={JobDetails} />
-
       </Switch>
       {/* <Footer /> */}
     </div>

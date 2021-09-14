@@ -1,15 +1,11 @@
 import { Link } from 'react-router-dom';
-// import { useState,useEffect } from 'react';
-
 import './JobThumbnailView.css'
-
 
 const JobThumbnailView = ({
     _id,
     title,
     description,
 }) => {
-
     return (
         <article className="job-thumbnail frow a-cen j-between h-70 mb-5 ">
             <section className="left ">
@@ -25,9 +21,6 @@ const JobThumbnailView = ({
             </section>
         </article>
     )
-
-
 }
-
 
 export default JobThumbnailView;

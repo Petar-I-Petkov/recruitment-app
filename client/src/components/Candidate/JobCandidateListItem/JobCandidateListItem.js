@@ -1,29 +1,41 @@
-
-
+import { useHistory } from 'react-router-dom'
 import './JobCandidateListItem.css';
-import AssignInterviewModal from '../../Modals/AssignInterviewModal/AssignInterviewModal'
+import BookInterview from '../../Interview/BookInterview/BookInterview'
 
 import * as modalPlugin from '../../../utils/modalPlugin/modalPlugin'
 
 
 const JobCandidateListItem = ({
-    _id,
+    candidateId,
+    jobId,
     firstName,
     lastName,
     onJobCandidateDeleteHandler,
+    slotsAreAvailable,
+    setAvailableSlots,
+    availableSlots
 }) => {
+    console.log(availableSlots);
+
+    const history = useHistory();
 
     const onAddInterviewClickHandler = (e) => {
         e.preventDefault();
-        modalPlugin.renderGlobalModal(AssignInterviewModal);
+        modalPlugin.renderGlobalModal(BookInterview,{ candidateId,jobId,history,setAvailableSlots,availableSlots });
     }
 
 
     return (
-        <section className="job-candidate-liItem frow a-cen j-between p-10 border mt-5" id={_id}>
-            <li key={_id} >{`${firstName} ${lastName}`}</li>
+        <section className="job-candidate-liItem frow a-cen j-between p-10 border mt-5" id={candidateId}>
+            <li key={candidateId} >{`${firstName} ${lastName}`}</li>
             <section className="job-candidate-liItem-right">
-                <button className="ml-20 btn-round-shadow-sm rem-07" onClick={onAddInterviewClickHandler}>Interview</button>
+                <button
+                    className="ml-20 btn-round-shadow-sm rem-07"
+                    onClick={onAddInterviewClickHandler}
+                    disabled={!slotsAreAvailable}
+                >
+                    Interview
+                </button>
                 <button className="ml-10 btn-round-shadow-sm rem-07 mr-10" onClick={onJobCandidateDeleteHandler}>X</button>
             </section>
         </section>

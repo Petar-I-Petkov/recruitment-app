@@ -3,6 +3,7 @@ import { useState,useEffect } from 'react';
 
 import JobCandidateListItem from '../JobCandidateListItem/JobCandidateListItem'
 
+import * as interviewservice from '../../../services/interviewservice'
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin';
 
 const JobCandidatesSection = ({
@@ -12,6 +13,7 @@ const JobCandidatesSection = ({
     const [addedCandidates,setAddedCandidates] = useState([]);
     const [toAdd,setToAdd] = useState(null);
     const [removedFromJob,setRemovedFromJob] = useState(null);
+    const [availableSlots,setAvailableSlots] = useState([]);
 
 
     const fetchAddedCandidates = () => {
@@ -40,6 +42,14 @@ const JobCandidatesSection = ({
             },(error) => console.log(error))
     },[toAdd,removedFromJob])
 
+    useEffect(() => {
+        interviewservice.getAvailableSlots()
+            .then(availableSlots => {
+                if(availableSlots && availableSlots.length > 0) {
+                    setAvailableSlots(availableSlots);
+                }
+            },err => console.log(err));
+    },[])
 
 
     const onAddCandidatesSelectChangeHandler = (e) => {
@@ -79,7 +89,6 @@ const JobCandidatesSection = ({
             },
         })
             .then(res => setRemovedFromJob(candidateId))
-
     }
 
 
@@ -87,7 +96,9 @@ const JobCandidatesSection = ({
     return (
         <section className="job-details-candidates frow a-start j-between">
             <section className="candidates-current pl-20">
-                <h2 className="mt-10 mb-20">Candidates:</h2>
+                <h2 className="mt-10 mb-20">
+                    Candidates: {addedCandidates.length} | Slots: {availableSlots.length}
+                </h2>
                 <ul className="added-candidates-list mb-20">
                     {addedCandidates
                         ?
@@ -95,10 +106,14 @@ const JobCandidatesSection = ({
                             ? addedCandidates.map(candidate =>
                                 <JobCandidateListItem
                                     key={candidate._id}
-                                    _id={candidate._id}
+                                    candidateId={candidate._id}
+                                    jobId={jobId}
                                     firstName={candidate.firstName}
                                     lastName={candidate.lastName}
                                     onJobCandidateDeleteHandler={onJobCandidateDeleteHandler}
+                                    slotsAreAvailable={availableSlots.length > 0}
+                                    setAvailableSlots={setAvailableSlots}
+                                    availableSlots={availableSlots}
                                 />)
                             : <div>No candidates yet.</div>
                         : notificationPlugin.renderLoadingBoxLocal()}

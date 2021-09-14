@@ -1,15 +1,13 @@
 import { useState,useEffect } from 'react';
-import * as notificationPlugin from '../utils/notificationPlugin/notificationPlugin'
 
 const useFetch = (url,options) => {
 
     const [loading,setLoading] = useState(false);
-    const [response,setResponse] = useState(null)
+    const [response,setResponse] = useState(null);
     const [error,setError] = useState(null);
 
     useEffect(() => {
 
-        // notificationPlugin.renderLoadingBoxGlobal();
         const fetchData = async () => {
 
             //advice component we are in a loading state
@@ -17,7 +15,6 @@ const useFetch = (url,options) => {
 
             // start the fetch process
             try {
-
                 //try to fetch and double check if response status is ok, 
                 //if not -> throw for the catch
                 const res = await fetch(url,options);
@@ -38,13 +35,11 @@ const useFetch = (url,options) => {
 
         setTimeout(() => {
             fetchData();
-            // notificationPlugin.clearNotificationPortal();
         },1000)
 
     },[]);
     return { response,error,loading };
 }
-
 
 export default useFetch;
 

@@ -1,0 +1,10 @@
+.book-interview{
+    flex-grow: 1;
+}
+
+
+.slot-select:active, .slot-select:focus{
+    background-color: yellow;
+    transform: scale(1.3);
+
+}
