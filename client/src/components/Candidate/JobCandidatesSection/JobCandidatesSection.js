@@ -112,7 +112,6 @@ const JobCandidatesSection = ({
                                     lastName={candidate.lastName}
                                     onJobCandidateDeleteHandler={onJobCandidateDeleteHandler}
                                     slotsAreAvailable={availableSlots.length > 0}
-                                    setAvailableSlots={setAvailableSlots}
                                     availableSlots={availableSlots}
                                 />)
                             : <div>No candidates yet.</div>

@@ -12,7 +12,6 @@ const JobCandidateListItem = ({
     lastName,
     onJobCandidateDeleteHandler,
     slotsAreAvailable,
-    setAvailableSlots,
     availableSlots
 }) => {
     console.log(availableSlots);
@@ -21,7 +20,7 @@ const JobCandidateListItem = ({
 
     const onAddInterviewClickHandler = (e) => {
         e.preventDefault();
-        modalPlugin.renderGlobalModal(BookInterview,{ candidateId,jobId,history,setAvailableSlots,availableSlots });
+        modalPlugin.renderGlobalModal(BookInterview,{ candidateId,jobId,history,availableSlots });
     }
 
 

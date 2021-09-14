@@ -11,23 +11,10 @@ const BookInterview = ({
     candidateId,
     jobId,
     history,
-    setAvailableSlots,
     availableSlots
 }) => {
 
     const [slot,setSlot] = useState(null);
-
-
-    useEffect(() => {
-        interviewservice.getAvailableSlots().then(res => console.log(res));
-    },[])
-
-    useEffect(() => {
-        interviewservice.getAvailableSlots()
-            .then(availableSlots =>
-                (availableSlots ? setAvailableSlots(availableSlots) : null),
-                err => console.log(err));
-    },[])
 
     const onSlotSelectHandler = (e) => {
         e.preventDefault();
