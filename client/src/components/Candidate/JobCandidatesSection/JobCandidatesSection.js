@@ -97,7 +97,7 @@ const JobCandidatesSection = ({
 
 
     return (
-        <SlotsContext.Provider value={availableSlots}>
+        <SlotsContext.Provider value={{ availableSlots,}}>
             <section className="job-details-candidates frow a-start j-between">
                 <section className="candidates-current pl-20">
                     <h2 className="mt-10 mb-20">

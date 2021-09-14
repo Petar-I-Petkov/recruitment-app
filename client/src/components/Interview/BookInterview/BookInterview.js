@@ -1,6 +1,6 @@
-import { useState,useEffect } from 'react'
-
+import { useState } from 'react';
 import './BookInterview.css';
+
 
 import * as modalPlugin from '../../../utils/modalPlugin/modalPlugin'
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin'
@@ -10,7 +10,7 @@ const BookInterview = ({
     candidateId,
     jobId,
     history,
-    availableSlots
+    slotsContext
 }) => {
 
     const [slot,setSlot] = useState(null);
@@ -51,10 +51,9 @@ const BookInterview = ({
             <section className="slots-select col j-around a-cen">
                 <section className="available-slots-buttons">
 
-                    {availableSlots
+                    {slotsContext.availableSlots
                         ?
-
-                        availableSlots.map(slot =>
+                        slotsContext.availableSlots.map(slot =>
                             <button
                                 key={slot}
                                 className="slot-select btn-round-sm ml-15 mr-15"
