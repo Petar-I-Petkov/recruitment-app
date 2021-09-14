@@ -93,10 +93,8 @@ const JobCandidatesSection = ({
             .then(res => setRemovedFromJob(candidateId))
     }
 
-
-
     return (
-        <SlotsContext.Provider value={{ availableSlots,updateAvailableSlots }}>
+        <SlotsContext.Provider value={{ availableSlots,updateAvailableSlots,slotsAreAvailable: availableSlots.length > 0 }}>
             <section className="job-details-candidates frow a-start j-between">
                 <section className="candidates-current pl-20">
                     <h2 className="mt-10 mb-20">
@@ -114,8 +112,6 @@ const JobCandidatesSection = ({
                                         firstName={candidate.firstName}
                                         lastName={candidate.lastName}
                                         onJobCandidateDeleteHandler={onJobCandidateDeleteHandler}
-                                        slotsAreAvailable={availableSlots.length > 0}
-                                        availableSlots={availableSlots}
                                     />)
                                 : <div>No candidates yet.</div>
                             : notificationPlugin.renderLoadingBoxLocal()}

@@ -14,8 +14,6 @@ const JobCandidateListItem = ({
     firstName,
     lastName,
     onJobCandidateDeleteHandler,
-    slotsAreAvailable,
-    availableSlots
 }) => {
 
     const slotsContext = useContext(SlotsContext);
@@ -33,7 +31,7 @@ const JobCandidateListItem = ({
                 <button
                     className="ml-20 btn-round-shadow-sm rem-07"
                     onClick={onAddInterviewClickHandler}
-                    disabled={!slotsAreAvailable}
+                    disabled={!slotsContext.slotsAreAvailable}
                 >
                     Interview
                 </button>
