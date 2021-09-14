@@ -1,7 +1,9 @@
 import './JobCandidatesSection.css';
 import { useState,useEffect } from 'react';
 
-import JobCandidateListItem from '../JobCandidateListItem/JobCandidateListItem'
+import JobCandidateListItem from '../JobCandidateListItem/JobCandidateListItem';
+import SlotsContext from '../../../contexts/SlotsContext';
+
 
 import * as interviewservice from '../../../services/interviewservice'
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin';
@@ -13,6 +15,7 @@ const JobCandidatesSection = ({
     const [addedCandidates,setAddedCandidates] = useState([]);
     const [toAdd,setToAdd] = useState(null);
     const [removedFromJob,setRemovedFromJob] = useState(null);
+
     const [availableSlots,setAvailableSlots] = useState([]);
 
 
@@ -94,54 +97,56 @@ const JobCandidatesSection = ({
 
 
     return (
-        <section className="job-details-candidates frow a-start j-between">
-            <section className="candidates-current pl-20">
-                <h2 className="mt-10 mb-20">
-                    Candidates: {addedCandidates.length} | Slots: {availableSlots.length}
-                </h2>
-                <ul className="added-candidates-list mb-20">
-                    {addedCandidates
-                        ?
-                        addedCandidates.length > 0
-                            ? addedCandidates.map(candidate =>
-                                <JobCandidateListItem
-                                    key={candidate._id}
-                                    candidateId={candidate._id}
-                                    jobId={jobId}
-                                    firstName={candidate.firstName}
-                                    lastName={candidate.lastName}
-                                    onJobCandidateDeleteHandler={onJobCandidateDeleteHandler}
-                                    slotsAreAvailable={availableSlots.length > 0}
-                                    availableSlots={availableSlots}
-                                />)
-                            : <div>No candidates yet.</div>
-                        : notificationPlugin.renderLoadingBoxLocal()}
-                </ul>
-            </section>
+        <SlotsContext.Provider value={availableSlots}>
+            <section className="job-details-candidates frow a-start j-between">
+                <section className="candidates-current pl-20">
+                    <h2 className="mt-10 mb-20">
+                        Candidates: {addedCandidates.length} | Slots: {availableSlots.length}
+                    </h2>
+                    <ul className="added-candidates-list mb-20">
+                        {addedCandidates
+                            ?
+                            addedCandidates.length > 0
+                                ? addedCandidates.map(candidate =>
+                                    <JobCandidateListItem
+                                        key={candidate._id}
+                                        candidateId={candidate._id}
+                                        jobId={jobId}
+                                        firstName={candidate.firstName}
+                                        lastName={candidate.lastName}
+                                        onJobCandidateDeleteHandler={onJobCandidateDeleteHandler}
+                                        slotsAreAvailable={availableSlots.length > 0}
+                                        availableSlots={availableSlots}
+                                    />)
+                                : <div>No candidates yet.</div>
+                            : notificationPlugin.renderLoadingBoxLocal()}
+                    </ul>
+                </section>
 
-            <section className="candidates-pending mt-10 fcol a-start j-start pl-20 pr-20">
-                <label className="mb-10" htmlFor="candidates-available">Available Candidates:</label>
-                <select className="w-200 mb-10 p-5" onChange={onAddCandidatesSelectChangeHandler}>
-                    {availableCandidates
-                        ?
-                        <>
-                            <option value="">Select...</option>
-                            {availableCandidates.map(candidate =>
-                                <option
-                                    key={candidate._id}
-                                    id={candidate._id}
-                                >
-                                    {`${candidate.firstName} ${candidate.lastName}`}
-                                </option>)}
-                        </>
-                        : notificationPlugin.renderLoadingBoxLocal()
-                    }
-                </select>
-                <button className="btn-round-shadow-l" onClick={onCandidateAddClickHandler} disabled={!toAdd}>
-                    Add
-                </button>
+                <section className="candidates-pending mt-10 fcol a-start j-start pl-20 pr-20">
+                    <label className="mb-10" htmlFor="candidates-available">Available Candidates:</label>
+                    <select className="w-200 mb-10 p-5" onChange={onAddCandidatesSelectChangeHandler}>
+                        {availableCandidates
+                            ?
+                            <>
+                                <option value="">Select...</option>
+                                {availableCandidates.map(candidate =>
+                                    <option
+                                        key={candidate._id}
+                                        id={candidate._id}
+                                    >
+                                        {`${candidate.firstName} ${candidate.lastName}`}
+                                    </option>)}
+                            </>
+                            : notificationPlugin.renderLoadingBoxLocal()
+                        }
+                    </select>
+                    <button className="btn-round-shadow-l" onClick={onCandidateAddClickHandler} disabled={!toAdd}>
+                        Add
+                    </button>
+                </section>
             </section>
-        </section>
+        </SlotsContext.Provider>
     )
 }
 
