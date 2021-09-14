@@ -2,7 +2,6 @@ import { useState,useEffect } from 'react'
 
 import './BookInterview.css';
 
-import * as interviewservice from '../../../services/interviewservice'
 import * as modalPlugin from '../../../utils/modalPlugin/modalPlugin'
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin'
 
