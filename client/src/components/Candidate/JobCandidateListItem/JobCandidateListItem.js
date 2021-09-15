@@ -14,13 +14,14 @@ const JobCandidateListItem = ({
     firstName,
     lastName,
     onJobCandidateDeleteHandler,
+    jobTitle
 }) => {
 
     const slotsContext = useContext(SlotsContext);
 
     const onAddInterviewClickHandler = (e) => {
         e.preventDefault();
-        modalPlugin.renderGlobalModal(BookInterview,{ candidateId,jobId,slotsContext });
+        modalPlugin.renderGlobalModal(BookInterview,{ candidateId,firstName,lastName,jobId,jobTitle,slotsContext });
     }
 
 

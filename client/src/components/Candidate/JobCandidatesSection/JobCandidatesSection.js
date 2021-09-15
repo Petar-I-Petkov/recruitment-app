@@ -9,13 +9,14 @@ import * as interviewservice from '../../../services/interviewservice'
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin';
 
 const JobCandidatesSection = ({
-    jobId
+    jobId,
+    jobTitle,
 }) => {
     const [availableCandidates,setAvailableCandidates] = useState([]);
     const [addedCandidates,setAddedCandidates] = useState([]);
     const [toAdd,setToAdd] = useState(null);
     const [removedFromJob,setRemovedFromJob] = useState(null);
-    const [availableSlots,setAvailableSlots] = useState([]);
+    const [availableSlots,setAvailableSlots] = useState([]); //also feeds the state
 
 
     const fetchAddedCandidates = () => {
@@ -107,10 +108,10 @@ const JobCandidatesSection = ({
                                     <JobCandidateListItem
                                         key={candidate._id}
                                         candidateId={candidate._id}
-                                        jobId={jobId}
                                         firstName={candidate.firstName}
                                         lastName={candidate.lastName}
                                         onJobCandidateDeleteHandler={onJobCandidateDeleteHandler}
+                                        jobTitle={jobTitle}
                                     />)
                                 : <div>No candidates yet.</div>
                             : notificationPlugin.renderLoadingBoxLocal()}

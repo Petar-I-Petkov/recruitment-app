@@ -33,7 +33,7 @@ const JobDetails = ({
                                     </p>
                                 </section>
                             </section>
-                            <JobCandidatesSection jobId={match.params.jobId} />
+                            <JobCandidatesSection jobId={match.params.jobId} jobTitle={job.title} />
                         </section>
 
                         <section className="bottom frow w-400 j-around a-cen mb-20 ">
