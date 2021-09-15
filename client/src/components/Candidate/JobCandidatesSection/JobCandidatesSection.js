@@ -53,7 +53,6 @@ const JobCandidatesSection = ({
         updateAvailableSlots();
     },[])
 
-
     const onAddCandidatesSelectChangeHandler = (e) => {
         e.preventDefault();
         const dropdown = e.target;

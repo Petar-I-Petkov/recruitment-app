@@ -44,8 +44,6 @@ const BookInterview = ({
     return (
 
         <section className="book-interview fcol a-cen j-around">
-
-
             <section className="slots-select col j-around a-cen">
                 <section className="available-slots-buttons">
 
@@ -71,10 +69,6 @@ const BookInterview = ({
 
         </section>
     )
-
-
-
-
 }
 
 export default BookInterview;
