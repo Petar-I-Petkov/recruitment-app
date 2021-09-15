@@ -11,7 +11,6 @@ const JobAdd = () => {
 
     const history = useHistory();
 
-
     const onJobSubmitClickHandler = (e) => {
         e.preventDefault();
 
