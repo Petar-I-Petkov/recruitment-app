@@ -1,7 +1,7 @@
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 import { render,screen } from '@testing-library/react';
 
-import JobsMenu from './JobsMenu'
+import JobsMenu from './JobsMenu';
 
 describe('JobsMenu component tests',() => {
 

@@ -1,16 +1,11 @@
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 import { render,fireEvent,screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
 
 import JobAdd from './JobAdd';
 import * as jobservice from '../../../services/jobservice';
 
-
 jest.mock('../../../services/jobservice');
 jest.mock('../../../utils/notificationPlugin/notificationPlugin');
-
-
 
 describe('JobAdd component tests',() => {
 
