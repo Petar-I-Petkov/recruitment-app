@@ -14,15 +14,12 @@ jest.mock('../../../utils/notificationPlugin/notificationPlugin');
 
 describe('JobAdd component tests',() => {
 
-    it("Should call jobService.addJob() one time when Submit button is pressed",async () => {
+    beforeEach(() => render(<BrowserRouter><JobAdd /></BrowserRouter>))
+
+    it("Should call jobService.addJob() one time when Submit button is pressed",() => {
 
         jobservice.addJob = jest.fn(() => { });
         jobservice.addJob.mockResolvedValue({});
-
-        render(
-            <BrowserRouter>
-                <JobAdd />
-            </BrowserRouter>);
 
         const submitBtn = screen.getByText('Submit');
         fireEvent.click(submitBtn);
