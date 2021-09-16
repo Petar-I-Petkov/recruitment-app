@@ -16,7 +16,7 @@ const JobAdd = () => {
 
         jobservice.addJob({
             title: e.target.title.value,
-            description: e.target.description.value,
+            description: document.querySelector("textarea[name='description']").value,
 
         }).then(response => {
 
@@ -36,7 +36,7 @@ const JobAdd = () => {
             <JobsMenu />
 
             <section className="jobs-add-container fcol a-cen j-start vw-60 h-300 border-s p-20 center mt-20">
-                <form onSubmit={onJobSubmitClickHandler}>
+                <form id="form" onSubmit={onJobSubmitClickHandler}>
                     <div className="fcol a-cen j-cen mb-20">
                         <h1 className="rem-14">Add New Job</h1>
                     </div>
