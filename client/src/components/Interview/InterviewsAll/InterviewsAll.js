@@ -33,6 +33,7 @@ const InterviewsAll = () => {
                                     _id={interview._id}
                                     candidateId={interview.candidateId}
                                     jobId={interview.jobId}
+                                    slot={interview.slot}
                                 />)
                             : <p>No Interviews found...</p>
                         : notificationPlugin.renderLoadingBoxLocal()

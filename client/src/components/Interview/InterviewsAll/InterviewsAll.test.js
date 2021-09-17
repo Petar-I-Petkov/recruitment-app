@@ -6,9 +6,21 @@ import InterviewsAll from '../InterviewsAll/InterviewsAll';
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin';
 import useFetch from '../../../hooks/useFetch';
 
+jest.mock('../../../utils/notificationPlugin/notificationPlugin')
+jest.mock('../../../hooks/useFetch')
+
 describe('InterviewsAll Component tests',() => {
 
-    it('Should render loading box when still no answer ')
+    it('Should render loading box when still no answer',() => {
+
+        useFetch.mockReturnValue({ response: null });
+        render(<BrowserRouter><InterviewsAll /></BrowserRouter>);
+
+        notificationPlugin.renderLoadingBoxLocal.mockImplementation(() => { });
+        expect(notificationPlugin.renderLoadingBoxLocal).toBeCalledTimes(1);
+
+
+    })
 
 
 })
