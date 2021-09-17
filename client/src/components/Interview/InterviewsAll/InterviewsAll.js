@@ -1,8 +1,6 @@
 
 import './InterviewsAll.css';
 
-
-
 import InterviewSlotItem from '../InterviewSlotItem/InterviewSlotItem';
 
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin';
@@ -27,15 +25,17 @@ const InterviewsAll = () => {
                 <section className="slots-wrapper frow">
                     {interviews
                         ?
-                        interviews.map(interview =>
-                            <InterviewSlotItem
-                                key={interview._id}
-                                _id={interview._id}
-                                candidateId={interview.candidateId}
-                                jobId={interview.jobId}
-                            />)
-                        :
-                        notificationPlugin.renderLoadingBoxLocal()
+                        interviews.length > 0
+                            ?
+                            interviews.map(interview =>
+                                <InterviewSlotItem
+                                    key={interview._id}
+                                    _id={interview._id}
+                                    candidateId={interview.candidateId}
+                                    jobId={interview.jobId}
+                                />)
+                            : <p>No Interviews found...</p>
+                        : notificationPlugin.renderLoadingBoxLocal()
                     }
                 </section>
 
