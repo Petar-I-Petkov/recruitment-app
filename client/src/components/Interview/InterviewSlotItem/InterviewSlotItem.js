@@ -21,14 +21,14 @@ const InterviewSlotItem = ({
     const job = jobRes.response;
 
     return (
-        <article id={id} className="slot-container fcol a-cen j-start w-250 h-100 border mt-20 ml-20">
-            <section className="slot-title ">
-                <p className="rem-15 mb-10">{`Slot ${slot}`}</p>
+        <article id={id} className="slot-container fcol a-cen j-start w-270 h-120 border mt-20 ml-20">
+            <section className="slot-title  mb-10">
+                <p className="rem-15">{`Slot ${slot}`}</p>
             </section>
             <section className="interview-slot-section fcol a-start j-start ">
                 {job
                     ?
-                    <p>{`${job.title}`}</p>
+                    <p className="mb-5 rem-11">{`${job.title}`}</p>
                     :
                     null
                 }

@@ -1,3 +1,31 @@
 .slot-container{
     padding: 5px;
 }
+
+.slot-title{
+    width: 70%;
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+
+#slot-1{
+    background-color: lightcoral;
+}
+
+#slot-2{
+    background-color: lightgreen;
+}
+
+#slot-3{
+    background-color: lightyellow;
+}
+
+#slot-4{
+    background-color: lightblue;
+}
+
+#slot-5{
+    background-color: #ff00ff78;
+}
+
+

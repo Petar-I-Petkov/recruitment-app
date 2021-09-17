@@ -20,21 +20,23 @@ const InterviewsAll = () => {
         <main>
             <section className="slots-container fcol a-cen j-start vw-80 h-600 border-s p-20 center  mt-50">
 
-                <h1 className="mb-20">Interview Slots</h1>
+                <h1 className="mb-20">INTERVIEWS</h1>
 
-                <section className="slots-wrapper frow">
+                <section className="slots-wrapper frow j-around">
                     {interviews
                         ?
                         interviews.length > 0
                             ?
-                            interviews.map(interview =>
-                                <InterviewSlotItem
-                                    key={interview._id}
-                                    id={interview._id}
-                                    candidateId={interview.candidateId}
-                                    jobId={interview.jobId}
-                                    slot={interview.slot}
-                                />)
+                            interviews
+                                .sort((i1,i2) => Number(i1.slot) - Number(i2.slot))
+                                .map(interview =>
+                                    <InterviewSlotItem
+                                        key={interview._id}
+                                        id={`slot-${interview.slot}`}
+                                        candidateId={interview.candidateId}
+                                        jobId={interview.jobId}
+                                        slot={interview.slot}
+                                    />)
                             : <p>No Interviews found...</p>
                         : notificationPlugin.renderLoadingBoxLocal()
                     }
