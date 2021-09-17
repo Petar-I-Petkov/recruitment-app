@@ -15,11 +15,8 @@ describe('InterviewsAll Component tests',() => {
 
         useFetch.mockReturnValue({ response: null });
         render(<BrowserRouter><InterviewsAll /></BrowserRouter>);
-
         notificationPlugin.renderLoadingBoxLocal.mockImplementation(() => { });
         expect(notificationPlugin.renderLoadingBoxLocal).toBeCalledTimes(1);
-
-
     })
 
 
