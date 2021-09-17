@@ -30,14 +30,26 @@ describe('InterviewsAll Component tests',() => {
             slot: '1'
         };
 
-        useFetch.mockReturnValueTi({ response: [interview1] });
+        const interview2 = {
+            key: '2',
+            _id: '2',
+            candidateId: 'candidateId2',
+            jobId: 'jobId2',
+            slot: '2'
+        };
+
+        useFetch.mockReturnValue({ response: [interview1,interview2] });
 
         render(<BrowserRouter><InterviewsAll /></BrowserRouter>);
 
         expect(notificationPlugin.renderLoadingBoxLocal).toBeCalledTimes(0);
 
-        const interviewSlotItemId = (document.getElementsByClassName('slot-container')[0].id);
-        expect(interviewSlotItemId).toBe('1');
+        const interviewSlotItem1Id = (document.getElementsByClassName('slot-container')[0].id);
+        const interviewSlotItem2Id = (document.getElementsByClassName('slot-container')[1].id);
+        const interviewSlotItem3 = (document.getElementsByClassName('slot-container')[3]);
+        expect(interviewSlotItem1Id).toBe('1');
+        expect(interviewSlotItem2Id).toBe('2');
+        expect(interviewSlotItem3).toBe(undefined);
 
     })
 
