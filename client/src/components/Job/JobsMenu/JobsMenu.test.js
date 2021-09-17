@@ -18,6 +18,8 @@ describe('JobsMenu component tests',() => {
     })
 })
 
+// https://testing-library.com/docs/react-testing-library/example-intro/
+
 
     // it('Should have two buttons',async () => {
 
