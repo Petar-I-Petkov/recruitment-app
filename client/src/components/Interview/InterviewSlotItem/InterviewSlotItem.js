@@ -1,4 +1,4 @@
-import './InterviewSlotItem';
+import './InterviewSlotItem.css';
 
 
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin';
@@ -15,11 +15,20 @@ const InterviewSlotItem = ({
     const candidateRes = useFetch(`${getCandidateUrl}/${candidateId}`,{});
     const candidate = candidateRes.response;
 
+    const jobRes = useFetch(`${getJobUrl}/${jobId}`,{});
+    const job = jobRes.response;
+
     return (
-        <article className="interview-slot-article frow j-cen w-250 h-100 border mt-20 ml-20">
+        <article className="interview-slot-article fcol a-start j-start w-250 h-100 border mt-20 ml-20">
+            {job
+                ?
+                <p>{`${job.title}`}</p>
+                :
+                notificationPlugin.renderLoadingBoxLocal()
+            }
             {candidate
                 ?
-                <h2>{candidate.firstName}</h2>
+                <p>{`${candidate.firstName} ${candidate.lastName}`}</p>
                 :
                 notificationPlugin.renderLoadingBoxLocal()
             }

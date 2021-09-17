@@ -12,6 +12,7 @@ const JobCandidatesSection = ({
     jobId,
     jobTitle,
 }) => {
+
     const [availableCandidates,setAvailableCandidates] = useState([]);
     const [addedCandidates,setAddedCandidates] = useState([]);
     const [toAdd,setToAdd] = useState(null);
@@ -112,6 +113,7 @@ const JobCandidatesSection = ({
                                         lastName={candidate.lastName}
                                         onJobCandidateDeleteHandler={onJobCandidateDeleteHandler}
                                         jobTitle={jobTitle}
+                                        jobId={jobId}
                                     />)
                                 : <div>No candidates yet.</div>
                             : notificationPlugin.renderLoadingBoxLocal()}
