@@ -30,7 +30,7 @@ const InterviewsAll = () => {
                             interviews.map(interview =>
                                 <InterviewSlotItem
                                     key={interview._id}
-                                    _id={interview._id}
+                                    id={interview._id}
                                     candidateId={interview.candidateId}
                                     jobId={interview.jobId}
                                     slot={interview.slot}

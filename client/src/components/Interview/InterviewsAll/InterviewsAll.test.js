@@ -19,5 +19,27 @@ describe('InterviewsAll Component tests',() => {
         expect(notificationPlugin.renderLoadingBoxLocal).toBeCalledTimes(1);
     })
 
+    it('Should render fetched interviews',() => {
+
+        notificationPlugin.renderLoadingBoxLocal.mockImplementation(() => { });
+        const interview1 = {
+            key: '1',
+            _id: '1',
+            candidateId: 'candidateId1',
+            jobId: 'jobId1',
+            slot: '1'
+        };
+
+        useFetch.mockReturnValueTi({ response: [interview1] });
+
+        render(<BrowserRouter><InterviewsAll /></BrowserRouter>);
+
+        expect(notificationPlugin.renderLoadingBoxLocal).toBeCalledTimes(0);
+
+        const interviewSlotItemId = (document.getElementsByClassName('slot-container')[0].id);
+        expect(interviewSlotItemId).toBe('1');
+
+    })
+
 
 })

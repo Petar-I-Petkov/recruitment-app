@@ -5,6 +5,7 @@ import * as notificationPlugin from '../../../utils/notificationPlugin/notificat
 import useFetch from '../../../hooks/useFetch';
 
 const InterviewSlotItem = ({
+    id,
     candidateId,
     jobId,
     slot
@@ -20,7 +21,7 @@ const InterviewSlotItem = ({
     const job = jobRes.response;
 
     return (
-        <article className="slot-container fcol a-cen j-start w-250 h-100 border mt-20 ml-20">
+        <article id={id} className="slot-container fcol a-cen j-start w-250 h-100 border mt-20 ml-20">
             <section className="slot-title ">
                 <p className="rem-15 mb-10">{`Slot ${slot}`}</p>
             </section>
