@@ -11,7 +11,7 @@ jest.mock('../../../hooks/useFetch')
 
 describe('InterviewsAll Component tests',() => {
 
-    it('Should render loading box when still no answer',() => {
+    it('Should render loading box when still no answer from fetching all interviews',() => {
 
         useFetch.mockReturnValue({ response: null });
         render(<BrowserRouter><InterviewsAll /></BrowserRouter>);
