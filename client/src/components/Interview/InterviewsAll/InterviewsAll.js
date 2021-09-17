@@ -1,6 +1,9 @@
 
 import './InterviewsAll.css';
 
+
+
+import InterviewSlotItem from '../InterviewSlotItem/InterviewSlotItem'
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin';
 import useFetch from '../../../hooks/useFetch';
 
@@ -12,11 +15,29 @@ const InterviewsAll = () => {
 
     const res = useFetch(getAllInterviewsUrl,{});
     const interviews = res.response;
-    console.log(interviews);
 
     return (
 
-        <h1>TODO: All Interviews List...</h1>
+        <main>
+            <section className="slots-container fcol a-cen j-start vw-80 h-600 border-s p-20 center scroll-y mt-50">
+                <h1 className="mb-20">Interview Slots</h1>
+
+                {interviews
+                    ?
+                    interviews.map(interview =>
+                        <InterviewSlotItem
+                            key={interview._id}
+                            _id={interview._id}
+                            candidateId={interview.candidateId}
+                            jobId={interview.jobId}
+                        />)
+                    :
+                    notificationPlugin.renderLoadingBoxLocal()
+                }
+
+
+            </section>
+        </main>
 
     )
 
