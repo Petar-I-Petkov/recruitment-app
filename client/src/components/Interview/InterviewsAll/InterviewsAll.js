@@ -3,7 +3,7 @@ import './InterviewsAll.css';
 
 
 
-import InterviewSlotItem from '../InterviewSlotItem/InterviewSlotItem';
+import InterviewSlotItem from '../InterviewSlotItem/InterviewSlotItem'
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin';
 import useFetch from '../../../hooks/useFetch';
 
@@ -19,23 +19,22 @@ const InterviewsAll = () => {
     return (
 
         <main>
-            <section className="slots-container fcol a-cen j-start vw-80 h-600 border-s p-20 center  mt-50">
+            <section className="slots-container fcol a-cen j-start vw-80 h-600 border-s p-20 center scroll-y mt-50">
                 <h1 className="mb-20">Interview Slots</h1>
 
-                <section className="slots-wrapper frow">
-                    {interviews
-                        ?
-                        interviews.map(interview =>
-                            <InterviewSlotItem
-                                key={interview._id}
-                                _id={interview._id}
-                                candidateId={interview.candidateId}
-                                jobId={interview.jobId}
-                            />)
-                        :
-                        notificationPlugin.renderLoadingBoxLocal()
-                    }
-                </section>
+                {interviews
+                    ?
+                    interviews.map(interview =>
+                        <InterviewSlotItem
+                            key={interview._id}
+                            _id={interview._id}
+                            candidateId={interview.candidateId}
+                            jobId={interview.jobId}
+                        />)
+                    :
+                    notificationPlugin.renderLoadingBoxLocal()
+                }
+
 
             </section>
         </main>
