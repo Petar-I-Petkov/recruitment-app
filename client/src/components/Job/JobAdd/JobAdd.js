@@ -27,7 +27,6 @@ const JobAdd = () => {
                 notificationPlugin.renderErrors(response.errors);
             }
         })
-
     }
 
 

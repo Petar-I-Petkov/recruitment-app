@@ -15,9 +15,6 @@ const BookInterview = ({
     slotsContext
 }) => {
 
-    const res = useFetch(`http://localhost:5000/jobs/${jobId}`,{});
-    const job = res.response;
-
     const [slot,setSlot] = useState(null);
 
     const onSlotSelectHandler = (e) => {
