@@ -22,10 +22,10 @@ const InterviewSlotItem = ({
 
     return (
         <article id={id} className="slot-container fcol a-cen j-start w-270 h-120 border mt-20 ml-20">
-            <section className="slot-title  mb-10">
-                <p className="rem-15">{`Slot ${slot}`}</p>
+            <section className="slot-title  mb-5">
+                <p className="rem-14">{`Slot ${slot}`}</p>
             </section>
-            <section className="interview-slot-section fcol a-start j-start ">
+            <section className="interview-slot-section fcol a-start j-start mb-10">
                 {job
                     ?
                     <p className="mb-5 rem-11">{`${job.title}`}</p>
@@ -38,6 +38,9 @@ const InterviewSlotItem = ({
                     :
                     notificationPlugin.renderLoadingBoxLocal()
                 }
+            </section>
+            <section className="interview-slot-details">
+                <button className="btn-round-shadow-sm">INTERVIEW</button>
             </section>
         </article>
 
