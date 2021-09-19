@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import { render,screen } from '@testing-library/react';
+import { render,screen,getByTestId } from '@testing-library/react';
 
 import InterviewSlotItem from '../InterviewSlotItem/InterviewSlotItem';
 
@@ -18,6 +18,21 @@ describe('InterviewSlotItem component tests',() => {
         notificationPlugin.renderLoadingBoxLocal.mockImplementation(() => { });
         expect(notificationPlugin.renderLoadingBoxLocal).toBeCalledTimes(1);
     })
+
+    it('Should render job and candidate info properly',() => {
+
+        useFetch.mockReturnValueOnce({ response: { firstName: 'petar',lastName: 'georgiev' } });
+        useFetch.mockReturnValueOnce({ response: { title: 'testJob1' } });
+
+        render(<BrowserRouter><InterviewSlotItem /></BrowserRouter>);
+        notificationPlugin.renderLoadingBoxLocal.mockImplementation(() => { });
+        expect(notificationPlugin.renderLoadingBoxLocal).toBeCalledTimes(0);
+
+
+        expect(document.getElementById('job-title')).toHaveTextContent('testJob1');
+        expect(document.getElementById('candidate-name')).toHaveTextContent('petar georgiev');
+    })
+
 
 })
 
