@@ -7,11 +7,13 @@ import JobCandidatesSection from '../../Candidate/JobCandidatesSection/JobCandid
 import useFetch from '../../../hooks/useFetch';
 import * as notificationPlugin from '../../../utils/notificationPlugin/notificationPlugin';
 
+const getAllJobsUrl = 'http://localhost:5000/jobs';
+
 
 const JobDetails = ({
     match
 }) => {
-    const res = useFetch(`http://localhost:5000/jobs/${match.params.jobId}`,{});
+    const res = useFetch(`${getAllJobsUrl}/${match.params.jobId}`,{});
     const job = res.response;
 
     return (

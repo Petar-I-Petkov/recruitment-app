@@ -46,7 +46,6 @@ export async function addJob(jobData) {
 
 //resolve here , because i don't control the error and messaging at app level (yet!) 
 export function getOne(jobId) {
-
     return fetch(`${getOneJobUrl}/${jobId}`)
         .then(response => response.json())
         .catch(err => console.error(err));
