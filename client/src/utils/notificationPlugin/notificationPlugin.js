@@ -3,6 +3,7 @@ import ReactDom from 'react-dom';
 import Notification from './Notification/Notification';
 import LoadingBoxGlobal from './LoadingBoxGlobal/LoadingBoxGlobal';
 import LoadingBoxLocal from './LoadingBoxLocal/LoadingBoxLocal';
+import LoadingBoxLocalSmall from './LoadingBoxLocalSmall/LoadingBoxLocalSmall';
 
 const renderInNotificationPortal = (messagesObj,boxType) => {
     document.getElementById('notification-portal')
@@ -37,6 +38,10 @@ export function renderLoadingBoxGlobal() {
 
 export function renderLoadingBoxLocal() {
     return <LoadingBoxLocal />
+}
+
+export function renderLoadingBoxLocalSmall() {
+    return <LoadingBoxLocalSmall />
 }
 
 export function clearNotificationPortal() {

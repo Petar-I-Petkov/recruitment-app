@@ -15,8 +15,9 @@ describe('InterviewSlotItem component tests',() => {
 
         useFetch.mockReturnValue({ response: null });
         render(<BrowserRouter><InterviewSlotItem /></BrowserRouter>);
-        notificationPlugin.renderLoadingBoxLocal.mockImplementation(() => { });
-        expect(notificationPlugin.renderLoadingBoxLocal).toBeCalledTimes(1);
+
+        notificationPlugin.renderLoadingBoxLocalSmall.mockImplementation(() => { });
+        expect(notificationPlugin.renderLoadingBoxLocalSmall).toBeCalledTimes(1);
     })
 
     it('Should render job and candidate info properly',() => {
@@ -25,8 +26,9 @@ describe('InterviewSlotItem component tests',() => {
         useFetch.mockReturnValueOnce({ response: { title: 'testJob1' } });
 
         render(<BrowserRouter><InterviewSlotItem /></BrowserRouter>);
-        notificationPlugin.renderLoadingBoxLocal.mockImplementation(() => { });
-        expect(notificationPlugin.renderLoadingBoxLocal).toBeCalledTimes(0);
+
+        notificationPlugin.renderLoadingBoxLocalSmall.mockImplementation(() => { });
+        expect(notificationPlugin.renderLoadingBoxLocalSmall).toBeCalledTimes(0);
 
 
         expect(document.getElementById('job-title')).toHaveTextContent('testJob1');

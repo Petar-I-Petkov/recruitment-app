@@ -31,13 +31,13 @@ const InterviewSlotItem = ({
                     ?
                     <p className="mb-5 rem-11" id="job-title">{`${job.title}`}</p>
                     :
-                    null
+                    <p className="slot-item-empty-row"></p>
                 }
                 {candidate
                     ?
                     <p id="candidate-name">{`${candidate.firstName} ${candidate.lastName}`}</p>
                     :
-                    notificationPlugin.renderLoadingBoxLocal()
+                    notificationPlugin.renderLoadingBoxLocalSmall()
                 }
             </section>
             <section className="interview-slot-details">
