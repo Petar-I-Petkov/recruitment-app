@@ -20,6 +20,7 @@ const InterviewSlotItem = ({
     const jobRes = useFetch(`${getJobUrl}/${jobId}`,{});
     const job = jobRes.response;
 
+
     return (
         <article id={id} className="slot-container fcol a-cen j-start w-270 h-120 border mt-20 ml-20">
             <section className="slot-title  mb-5">
@@ -28,13 +29,13 @@ const InterviewSlotItem = ({
             <section className="interview-slot-section fcol a-start j-start mb-10">
                 {job
                     ?
-                    <p className="mb-5 rem-11">{`${job.title}`}</p>
+                    <p className="mb-5 rem-11" id="job-title">{`${job.title}`}</p>
                     :
                     null
                 }
                 {candidate
                     ?
-                    <p>{`${candidate.firstName} ${candidate.lastName}`}</p>
+                    <p id="candidate-name">{`${candidate.firstName} ${candidate.lastName}`}</p>
                     :
                     notificationPlugin.renderLoadingBoxLocal()
                 }

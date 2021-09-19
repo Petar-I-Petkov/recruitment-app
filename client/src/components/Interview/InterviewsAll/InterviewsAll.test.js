@@ -47,8 +47,8 @@ describe('InterviewsAll Component tests',() => {
         const interviewSlotItem1Id = (document.getElementsByClassName('slot-container')[0].id);
         const interviewSlotItem2Id = (document.getElementsByClassName('slot-container')[1].id);
         const interviewSlotItem3 = (document.getElementsByClassName('slot-container')[3]);
-        expect(interviewSlotItem1Id).toBe('1');
-        expect(interviewSlotItem2Id).toBe('2');
+        expect(interviewSlotItem1Id).toBe('slot-1');
+        expect(interviewSlotItem2Id).toBe('slot-2');
         expect(interviewSlotItem3).toBe(undefined);
 
     })
