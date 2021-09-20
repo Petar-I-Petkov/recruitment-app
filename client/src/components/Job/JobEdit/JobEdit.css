@@ -1,0 +1,38 @@
+
+.job-edit-container{
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 300px;
+    width: 500px;
+}
+
+.job-edit-top{
+    background-color: #42abf8;
+    width: 100%;
+    padding: 10px;
+}
+
+.job-edit-middle-container{
+    flex-grow: 1;
+    min-width: 200px;
+    padding: 10px;
+
+
+}
+
+.job-edit-description-input{
+    max-width: 300px;
+    min-width: 150px;
+    min-height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.job-edit-title-input{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.job-edit-title-label, .job-edit-description-label{
+    font-weight: bold;
+}

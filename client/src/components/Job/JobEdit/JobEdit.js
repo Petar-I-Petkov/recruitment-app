@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 
 import './JobEdit.css';
 
@@ -23,19 +23,31 @@ const JobEdit = ({
     },[]);
 
     return (
-        <article className="job-edit-container fcol w-600 center mt-20 border a-cen j-between">
-            <section className="job-details-top frow a-cen j-cen">
-                <h2>{job.title}</h2>
+        <article className="job-edit-container fcol center mt-20 border a-cen j-between">
+            <section className="job-edit-top frow a-cen j-cen">
+                <p>Edit Job: </p>
+                <p>{job.title}</p>
             </section>
-            <section className="job-details-middle-container fcol">
-                <section className="job-details-description-container fcol a-start j-start">
-                    <section className="job-details-description">
-                        <p className="">Description:</p>
-                        <p className="job-details-description-text">
-                            {job.description}
-                        </p>
+            <section className="job-edit-middle-container fcol a-start j-cen">
+                <section className="job-edit-title-container fcol a-start j-start">
+                    <section className="job-edit-title mb-20">
+                        <p className="mb-10 job-edit-title-label">Title:</p>
+                        <input className="job-edit-title-input" value={job.title || 'N/A'}>
+                        </input>
                     </section>
                 </section>
+                <section className="job-edit-description-container fcol a-start j-start">
+                    <section className="job-edit-description">
+                        <p className="mb-10 job-edit-description-label">Description:</p>
+                        <textarea className="job-edit-description-input mb-20" value={job.description || 'N/A'}>
+                        </textarea>
+                    </section>
+                </section>
+            </section>
+            <section className="job-edit-buttons-container mb-20">
+                <button className="btn-round-shadow-l">Save</button>
+                <button className="btn-round-shadow-l ml-20">Cancel</button>
+
             </section>
         </article>
     )
