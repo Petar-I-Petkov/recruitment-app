@@ -22,6 +22,8 @@ const JobEdit = ({
             });
     },[]);
 
+    console.log(job);
+
     return (
         <article className="job-edit-container fcol center mt-20 border a-cen j-between">
             <section className="job-edit-top frow a-cen j-cen">
@@ -32,14 +34,14 @@ const JobEdit = ({
                 <section className="job-edit-title-container fcol a-start j-start">
                     <section className="job-edit-title mb-20">
                         <p className="mb-10 job-edit-title-label">Title:</p>
-                        <input className="job-edit-title-input" value={job.title || 'N/A'}>
+                        <input className="job-edit-title-input" value={job.title || 'N/A'} onChange={(e) => setJob({ ...job,title: e.target.value })}>
                         </input>
                     </section>
                 </section>
                 <section className="job-edit-description-container fcol a-start j-start">
                     <section className="job-edit-description">
                         <p className="mb-10 job-edit-description-label">Description:</p>
-                        <textarea className="job-edit-description-input mb-20" value={job.description || 'N/A'}>
+                        <textarea className="job-edit-description-input mb-20" value={job.description || 'N/A'} onChange={(e) => setJob({ ...job,description: e.target.value })}>
                         </textarea>
                     </section>
                 </section>
