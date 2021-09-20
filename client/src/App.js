@@ -6,6 +6,7 @@ import Home from './components/Home/Home'
 import JobAll from './components/Job/JobAll/JobAll'
 import JobAdd from './components/Job/JobAdd/JobAdd'
 import JobDetails from './components/Job/JobDetails/JobDetails'
+import JobEdit from './components/Job/JobEdit/JobEdit'
 import InterviewsAll from './components/Interview/InterviewsAll/InterviewsAll'
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/jobs/all" component={JobAll} />
         <Route path="/jobs/add" component={JobAdd} />
         <Route path="/jobs/details/:jobId" component={JobDetails} />
+        <Route path="/jobs/edit/:jobId" component={JobEdit} />
         <Route path="/interviews/all" component={InterviewsAll} />
       </Switch>
       {/* <Footer /> */}
