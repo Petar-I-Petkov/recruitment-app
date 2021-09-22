@@ -65,7 +65,6 @@ const renderMultilineNotifications = (messagesObj,boxType) => {
     })
 }
 
-
 export function renderErrors(errorMessagesObj) {
     renderInNotificationPortal(errorMessagesObj,'errorBox')
 }
