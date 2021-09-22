@@ -24,7 +24,7 @@ const JobAdd = () => {
                 history.push('/jobs/all');
                 notificationPlugin.renderInfo({ message: `Resource created successfully!` })
             } else {
-                notificationPlugin.renderErrors(response.errors);
+                notificationPlugin.renderMultilineErrors(response.errors);
             }
         })
     }
