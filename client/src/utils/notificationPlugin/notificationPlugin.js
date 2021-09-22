@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+
+import DelayedDisplayHoc from './DelayedDisplayHoc/DelayedDisplayHoc';
 import Notification from './Notification/Notification';
 import LoadingBoxGlobal from './LoadingBoxGlobal/LoadingBoxGlobal';
 import LoadingBoxLocal from './LoadingBoxLocal/LoadingBoxLocal';
@@ -26,6 +28,7 @@ const emptyMainNotificationPortal = (e) => {
 }
 
 const renderMultilineNotifications = (messagesObj,boxType) => {
+
     const notificationPortal = document.getElementById('notification-portal');
 
     if(!notificationPortal) {
@@ -34,7 +37,6 @@ const renderMultilineNotifications = (messagesObj,boxType) => {
     }
 
     Object.keys(messagesObj).forEach((key,index) => {
-
         //create new notification container
         const notificationContainer = document.createElement('div');
         notificationContainer.setAttribute('id',`${key}-${index}`);
@@ -42,16 +44,23 @@ const renderMultilineNotifications = (messagesObj,boxType) => {
         //append it to notification-portal
         notificationPortal.appendChild(notificationContainer);
 
+        const emptyCurrentPortal = () => {
+            ReactDom.unmountComponentAtNode(document.getElementById(`${key}-${index}`));
+            const toRemoveElement = document.getElementById(`${key}-${index}`);
+            toRemoveElement.parentElement.removeChild(toRemoveElement);
+        }
+
         //use React to mount element there
-        setTimeout(() => {
-            ReactDom.render(
+        ReactDom.render(
+            <DelayedDisplayHoc key={key} delay={index * 700}>
                 <Notification
                     messagesObj={{ key: messagesObj[key] }}
                     boxType={boxType}
-                    onBtnCloseClickHandler={emptyMainNotificationPortal}
+                    onBtnCloseClickHandler={emptyCurrentPortal}
                 />
-                ,notificationContainer);
-        },1500);
+            </DelayedDisplayHoc>
+
+            ,notificationContainer);
 
     })
 }
